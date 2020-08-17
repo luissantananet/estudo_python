@@ -43,6 +43,13 @@ def downloader():
     except Exception as e:
         download_status.config(text='Faild! There is an error.')
 
+img = Image.open('logo.ico') # logo image
+img = img.resize((80,80), Image.ANTIALIAS) # resize the lgo image
+img = ImageTk.PhotoImage(img) # load the image for tkinter
+head = Label(root, image=img) # main image or icon as a heading
+head.config(anchor=CENTER)
+head.pack()
+
 root = Tk() # main window handler
 root.geometry('600x400') # size of the window
 root.iconbitmap('logo.ico') # logo of the window
@@ -51,12 +58,7 @@ root.title("Youtube video Downloader") # title of window
 root['bg'] = 'white' # color of window
 root.resizable(0,0) # disable maximize button
 
-img = Image.open('logo.ico') # logo image
-img = img.resize((80,80), Image.ANTIALIAS) # resize the lgo image
-img = ImageTk.PhotoImage(img) # load the image for tkinter
-head = Label(root, image=img) # main image or icon as a heading
-head.config(anchor=CENTER)
-head.pack()
+
 
 # URL config
 enter_url = Label(root, text='Enter URL:', bg='white')
